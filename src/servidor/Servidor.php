@@ -23,11 +23,13 @@ class Servidor implements Entidade{
     
     private $departamento;
     
+    private $frequencias=[];
+    
     public function __construct($nome, $cpf, $usuario, $senha, $departamento) {
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->usuario = $usuario;
-        $this->senha = $senha;
+        $this->senha = md5($senha);
         $this->departamento = $departamento;
     }
     

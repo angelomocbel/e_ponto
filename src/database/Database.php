@@ -31,13 +31,11 @@ class Database {
     public function realizar($pedido) {
         return $this->converter_resultado_tabela($this->conexao->query($pedido));
     }
+    
     private function converter_resultado_tabela($resultado) {
         $tabela = array();
         $n = 0;
-
-        if (!strcmp(gettype($resultado), "boolean")) {
-            return $resultado;
-        }
+        if (!strcmp(gettype($resultado), "boolean")) return $resultado;
         while ($linha = $resultado->fetch_assoc()) {
             $linha_tabela = array();
             $c = 0;
@@ -52,17 +50,51 @@ class Database {
         return $tabela;
     }
     
-    public function salvar($obtejo){
+    private function salvar($obtejo){
         $pedido = "INSERT INTO ".$obtejo->getTabela()." (".$objeto->getCampos().") VALUES(".$objeto->getValores().");";
         return $this->realizar($pedido);
     }
     
-    public function excluir($objeto){
+    private function excluir($objeto){
         $pedido = "DELETE FROM ".$objeto->getTabela()." WHERE = ".$objeto->getId().";";
         return $this->realizar($pedido);
     }
     
-    public function atualizar($objeto){
-        $pedido = "UPDATE ".$objeto->getTabela()." SET "."";
+    private function atualizar($objeto){
+        $pedido = "UPDATE ".$objeto->getTabela()." SET ".$objeto->getValoresUpdate()." WHERE id = "
+                .$objeto->getId().";";
+        return $this->realizar($pedido);
+    }
+    
+    public function login($usuario, $senha){
+        $senha = md5($senha);
+        $pedido  = "SELECT * FROM servidor WHERE usuario = '$usuario' AND senha = '$senha';";
+        return $this->realizar($pedido);
+    }
+    //adicionar novo servidor
+    public function adicionar_servidor($servidor){
+        $pedido = "SELECT usuario FROM servidor WHERE usuario = '$servidor->getUsuario()';";
+        $resultado = $this->realizar($pedido);
+        if(count($resultado) == 0){
+            if ($this->salvar($servidor)) {
+                return 1; //salvo com sucesso
+            }else{
+                return 0; //erro ao salvar
+            }
+        }
+        return 2; //nome de usuário já está cadastrado
+    }
+    //adicionar novo departamento
+    public function adicionar_departamento($departamento){
+        $pedido = "SELECT nome FROM departamento WHERE nome = '$departamento->getNome()';";
+        $resultado = $this->realizar($pedido);
+        if(count($resultado) == 0){
+            if($this->salvar($departamento)){
+                return 1; //salvo com sucesso
+            }else{
+                return 0; //erro ao salvar
+            }
+        }
+        return 2; //nome de departamento já está cadastrado
     }
 }

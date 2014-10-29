@@ -16,4 +16,6 @@ class Frequencia {
     private $dia;
     private $entrada;
     private $saida;
+    
+    private $servidor;
 }

@@ -1,0 +1,20 @@
+*{
+    font-family: Tahoma, sans-serif, Arial;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#topo{
+    width: auto;
+    height: 150px;
+    background-color: #66ccff;
+}
+
+#corpo{
+    margin: auto;
+    width: 600px;
+    height: 800px;
+    background-color: #6699ff;
+}
