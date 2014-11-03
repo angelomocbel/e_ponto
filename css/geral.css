@@ -4,17 +4,24 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #dbdbfd;
 }
 
 #topo{
     width: auto;
-    height: 150px;
-    background-color: #66ccff;
+    height: 50px;
+    background-color: #0071cf;
+    box-shadow: 1px 0px 6px #ccccff;
+}
+
+#topo img{
+    float: left;
 }
 
 #corpo{
+    background-color: whitesmoke;
     margin: auto;
-    width: 600px;
-    height: 800px;
-    background-color: #6699ff;
+    width: 640px;
+    height: 480px;
+    border: 1px solid black ;
 }
