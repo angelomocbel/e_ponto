@@ -19,13 +19,16 @@ and open the template in the editor.
 }
 
 #menu li ul{
+    width: 120px;
     position: absolute;
     float: left;
+    right: 0px;
     display: none;
     
 }
 
 #menu li ul li{
+    padding: 5px;
     padding-top: 2px;
     padding-bottom: 2px;
     font-size: 16px;
@@ -51,4 +54,8 @@ and open the template in the editor.
 
 #opcoes{
     top: 26px;
+}
+
+#menu li ul li:hover{
+    background-color: #0071cf;
 }

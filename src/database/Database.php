@@ -66,6 +66,11 @@ class Database {
         return $this->realizar($pedido);
     }
     
+    private function listar($objeto){
+        $pedido = "SELECT * FROM ".$objeto->getTabela().";";
+        return $this->realizar($pedido);
+    }
+    
     public function login($usuario, $senha){
         $senha = md5($senha);
         $pedido  = "SELECT * FROM servidor WHERE usuario = '$usuario' AND senha = '$senha';";

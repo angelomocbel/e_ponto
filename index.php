@@ -22,10 +22,9 @@ and open the template in the editor.
                     <li id="item">
                         <img src="img/menu.png" width="60" alt=""/>
                         <ul id="opcoes">
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Relatórios</a></li>
+                            <li><a href="#">Usuários</a></li>
+                            <li><a href="#">Sobre</a></li>
                         </ul>
                     </li>
                 </ul>

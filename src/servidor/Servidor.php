@@ -20,11 +20,13 @@ class Servidor implements Entidade{
     private $cpf;
     private $usuario;
     private $senha;
-    
+    private $tabela = "servidor";
     private $departamento;
     
     private $frequencias=[];
-    
+    public function getTabela(){
+        return $this->tabela;
+    }
     public function __construct($nome, $cpf, $usuario, $senha, $departamento) {
         $this->nome = $nome;
         $this->cpf = $cpf;
